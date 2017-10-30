@@ -35,17 +35,14 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     if [[ -n "${RV_SETTINGS_BUCKET}" ]]; then
         pushd "${TERRAFORM_DIR}"
 
-        aws s3 cp "s3://${RV_SETTINGS_BUCKET}/terraform/terraform.tfvars" "${RV_SETTINGS_BUCKET}.tfvars"
-
         case "${1}" in
             plan)
                 rm -rf .terraform terraform.tfstate* 
                 terraform init \
                   -backend-config="bucket=${RV_SETTINGS_BUCKET}" \
-                  -backend-config="key=terraform/state"
+                  -backend-config="key=terraform/raster-vision/state"
 
                 terraform plan \
-                          -var-file="${RV_SETTINGS_BUCKET}.tfvars" \
                           -var="image_version=${GIT_COMMIT}" \
                           -out="${RV_SETTINGS_BUCKET}.tfplan"
                 ;;

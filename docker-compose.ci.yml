@@ -1,0 +1,14 @@
+version: '2.1'
+services:
+  terraform:
+    image: "quay.io/azavea/terraform:0.9.11"
+    volumes:
+      - ./:/usr/local/src
+      - ~/.aws:/root/.aws
+    environment:
+      - RV_DEBUG=1
+      - GIT_COMMIT=${GIT_COMMIT:-latest}
+      - AWS_PROFILE=${AWS_PROFILE:-raster-vision}
+      - RV_SETTINGS_BUCKET=${RV_SETTINGS_BUCKET:-geotrellis-site-production-config-us-east-1}
+    working_dir: /usr/local/src
+    entrypoint: bash
