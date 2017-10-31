@@ -2,7 +2,7 @@
 
 set -e
 
-if [[ -n "${PC_DEMO_DEBUG}" ]]; then
+if [[ -n "${RV_DEBUG}" ]]; then
     set -x
 fi
 
@@ -23,19 +23,10 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     if [ "${1:-}" = "--help" ]; then
         usage
     else
-        # Delete output from previous build.
-        GIT_COMMIT="${GIT_COMMIT}" docker-compose \
-                  -f docker-compose.yml \
-                  -f docker-compose.test.yml \
-                  run --entrypoint bash --rm --no-deps app-frontend \
-                  -c 'rm -rf /usr/src/dist/*'
-
         # Build React application, which assembles the bundle within
         # the container image.
-        GIT_COMMIT="${GIT_COMMIT}" docker-compose \
-                  -f docker-compose.yml \
-                  -f docker-compose.test.yml \
-                  run --rm --no-deps app-frontend
+        GIT_COMMIT="${GIT_COMMIT}" docker-compose run --rm --no-deps \
+                  app-frontend run bundle
 
         # Build the Nginx container image and pull in the staging area
         # web root.

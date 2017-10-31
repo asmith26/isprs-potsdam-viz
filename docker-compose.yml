@@ -1,10 +1,7 @@
 version: '2.1'
 services:
   nginx:
-    image: rfviz-nginx
-    build:
-      context: ./src/nginx
-      dockerfile: Dockerfile
+    image: nginx:1.10
     ports:
       - "9100:80"
     links:
@@ -23,7 +20,8 @@ services:
         - ./src/nginx/srv/dist:/usr/src/static
         # Ensure node_modules cache doesn't clash with other jobs on CI.
         - /var/cache/pc-demo-node-modules:/usr/src/node_modules
-    command: npm run dev-server
+    entrypoint: npm
+    command: run dev-server
   api-server:
     image: openjdk:8-jre
     ports:

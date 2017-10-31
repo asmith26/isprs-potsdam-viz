@@ -2,7 +2,7 @@
 
 set -e
 
-if [[ -n "${PC_DEMO_DEBUG}" ]]; then
+if [[ -n "${RV_DEBUG}" ]]; then
     set -x
 fi
 
@@ -23,12 +23,12 @@ then
         # Install npm dependencies
         docker-compose \
             -f docker-compose.yml \
-            run --rm --no-deps app-frontend npm install
+            run --rm --no-deps app-frontend install
 
         # Build React application
         docker-compose \
             -f docker-compose.yml \
             -f docker-compose.test.yml \
-            run --rm --no-deps app-frontend
+            run --rm --no-deps app-frontend run bundle
     fi
 fi
