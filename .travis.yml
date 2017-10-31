@@ -4,7 +4,7 @@ cache:
   directories:
   - ${HOME}/.ivy2
   - ./src/app-backend/.sbt
-  - /var/cache/raster-vision-node-modules
+  - ${PWD}/raster-vision-node-modules
 services: docker
 env:
   global:

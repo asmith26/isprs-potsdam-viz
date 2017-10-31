@@ -24,7 +24,7 @@ services:
         - ./src/app-frontend:/usr/src
         - ./src/nginx/srv/dist:/usr/src/dist
         # Ensure node_modules cache doesn't clash with other jobs on CI.
-        - /var/cache/rastervision-node-modules:/usr/src/node_modules
+        - ${PWD}/rastervision-node-modules:/usr/src/node_modules
     entrypoint: npm
     command: run dev-server
   api-server:
