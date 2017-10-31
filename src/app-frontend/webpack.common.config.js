@@ -47,7 +47,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'GeoTrellis Point Cloud Demo',
             filename: 'index.html',
-            favicon: 'img/favicon.png',
+            favicon: 'img/Favicon.png',
             template: 'template.html'
         }),
     ],

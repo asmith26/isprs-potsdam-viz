@@ -2,7 +2,7 @@
 
 set -e
 
-if [[ -n "${PC_DEMO_DEBUG}" ]]; then
+if [[ -n "${RV_DEBUG}" ]]; then
     set -x
 fi
 

@@ -23,7 +23,7 @@ then
         # Install npm dependencies
         docker-compose \
             -f docker-compose.yml \
-            run --rm --no-deps app-frontend install
+            run --rm --no-deps app-frontend install --quiet
 
         # Build React application
         docker-compose \

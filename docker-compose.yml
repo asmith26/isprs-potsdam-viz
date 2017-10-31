@@ -18,11 +18,13 @@ services:
       - nginx
     ports:
       - "8284:8284"
+    environment:
+      - VERSION=${TRAVIS_COMMIT:-latest}
     volumes:
         - ./src/app-frontend:/usr/src
-        - ./src/nginx/srv/dist:/usr/src/static
+        - ./src/nginx/srv/dist:/usr/src/dist
         # Ensure node_modules cache doesn't clash with other jobs on CI.
-        - /var/cache/pc-demo-node-modules:/usr/src/node_modules
+        - /var/cache/rastervision-node-modules:/usr/src/node_modules
     entrypoint: npm
     command: run dev-server
   api-server:
@@ -37,7 +39,7 @@ services:
         - /home/vagrant/.ivy2/:/root/.ivy2
         - $HOME/.aws:/root/.aws:ro
     environment:
-      - AWS_PROFILE=open-tree-id
+      - AWS_PROFILE=geotrellis
     working_dir: /opt/app-backend/
     entrypoint: ./sbt
     command: ~server/reStart

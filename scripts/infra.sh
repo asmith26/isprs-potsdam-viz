@@ -15,10 +15,10 @@ Execute Terraform subcommands with remote state management.
 "
 }
 
-if [[ -n "${GIT_COMMIT}" ]]; then
-    GIT_COMMIT="${GIT_COMMIT:0:7}"
+if [[ -n "${TRAVIS_COMMIT}" ]]; then
+    TRAVIS_COMMIT="${TRAVIS_COMMIT:0:7}"
 else
-    GIT_COMMIT="$(git rev-parse --short HEAD)"
+    TRAVIS_COMMIT="$(git rev-parse --short HEAD)"
 fi
 
 if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
@@ -27,7 +27,7 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     else
         TERRAFORM_DIR="${DIR}/../deployment/terraform"
         echo
-        echo "Attempting to deploy application version [${GIT_COMMIT}]..."
+        echo "Attempting to deploy application version [${TRAVIS_COMMIT}]..."
         echo "-----------------------------------------------------"
         echo
     fi
@@ -43,7 +43,7 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
                   -backend-config="key=terraform/raster-vision/state"
 
                 terraform plan \
-                          -var="image_version=${GIT_COMMIT}" \
+                          -var="image_version=${TRAVIS_COMMIT}" \
                           -out="${RV_SETTINGS_BUCKET}.tfplan"
                 ;;
             apply)
