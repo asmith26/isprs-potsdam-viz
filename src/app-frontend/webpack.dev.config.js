@@ -34,7 +34,7 @@ config.devServer =  {
   'history-api-fallback': true,
   port: port,
   proxy: {
-    '*': { target: 'http://nginx' }
+    '*': { target: 'http://nginx:443/' }
   }
 };
 

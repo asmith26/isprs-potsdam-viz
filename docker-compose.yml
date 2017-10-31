@@ -3,10 +3,13 @@ services:
   nginx:
     image: nginx:1.10
     ports:
-      - "9100:80"
+      - "9100:443"
     links:
       - api-server
     volumes:
+      - ./src/nginx/etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - ./src/nginx/etc/nginx/includes/security-headers.conf:/etc/nginx/includes/security-headers.conf
+      - ./src/nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./src/nginx/srv/dist:/srv/dist:ro
   app-frontend:
     image: node:6.9-slim
