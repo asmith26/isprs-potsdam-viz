@@ -32,19 +32,19 @@ variable "raster_vision_ecs_desired_count" {
 }
 
 variable "raster_vision_ecs_min_count" {
-  default = "0"
-}
-
-variable "raster_vision_ecs_max_count" {
   default = "1"
 }
 
+variable "raster_vision_ecs_max_count" {
+  default = "2"
+}
+
 variable "raster_vision_ecs_deployment_min_percent" {
-  default = "0"
+  default = "100"
 }
 
 variable "raster_vision_ecs_deployment_max_percent" {
-  default = "100"
+  default = "200"
 }
 
 # IAM
