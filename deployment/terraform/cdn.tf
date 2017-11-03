@@ -31,7 +31,7 @@ resource "aws_cloudfront_distribution" "cdn" {
       headers      = ["*"]
 
       cookies {
-        forward = "none"
+        forward = "all"
       }
     }
 
