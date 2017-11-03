@@ -42,6 +42,7 @@ module "raster_vision_ecs_service" {
   deployment_max_percent         = "${var.raster_vision_ecs_deployment_max_percent}"
   container_name                 = "nginx"
   container_port                 = "443"
+  health_check_path              = "/"
   ecs_service_role_name          = "${data.terraform_remote_state.core.ecs_service_role_name}"
   ecs_autoscale_role_arn         = "${data.terraform_remote_state.core.ecs_autoscale_role_arn}"
 
