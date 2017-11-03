@@ -1,0 +1,4 @@
+*
+
+# Raster Vision server JAR
+!target/scala-*/rv-server.jar
