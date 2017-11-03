@@ -1,7 +1,7 @@
 #
 # Website ALB security group resources
 #
-resource "aws_security_group_rule" "raster_vision_alb_https_ingress" {
+resource "aws_security_group_rule" "alb_raster_vision_https_ingress" {
   type        = "ingress"
   from_port   = 443
   to_port     = 443
@@ -11,7 +11,7 @@ resource "aws_security_group_rule" "raster_vision_alb_https_ingress" {
   security_group_id = "${module.raster_vision_ecs_service.lb_security_group_id}"
 }
 
-resource "aws_security_group_rule" "alb_container_instance_all_egress" {
+resource "aws_security_group_rule" "alb_raster_vision_container_instance_all_egress" {
   type      = "egress"
   from_port = 0
   to_port   = 65535
@@ -24,7 +24,7 @@ resource "aws_security_group_rule" "alb_container_instance_all_egress" {
 #
 # Container instance security group resources
 #
-resource "aws_security_group_rule" "container_instance_alb_all_ingress" {
+resource "aws_security_group_rule" "container_instance_alb_raster_vision_all_ingress" {
   type      = "ingress"
   from_port = 0
   to_port   = 65535
@@ -34,7 +34,7 @@ resource "aws_security_group_rule" "container_instance_alb_all_ingress" {
   source_security_group_id = "${module.raster_vision_ecs_service.lb_security_group_id}"
 }
 
-resource "aws_security_group_rule" "container_instance_alb_all_egress" {
+resource "aws_security_group_rule" "container_instance_alb_raster_vision_all_egress" {
   type      = "egress"
   from_port = 0
   to_port   = 65535
