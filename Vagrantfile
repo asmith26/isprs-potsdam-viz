@@ -37,7 +37,7 @@ Vagrant.configure(2) do |config|
 SCRIPT
 
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "deployment/ansible/rastervision.yml"
+    ansible.playbook = "deployment/ansible/isprs-potsdam-viz.yml"
     ansible.galaxy_role_file = "deployment/ansible/roles.yml"
   end
 end

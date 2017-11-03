@@ -9,6 +9,6 @@
   roles:
     - { role: "azavea.ntp" }
     - { role: "azavea.terraform" }
-    - { role: "rastervision.aws-cli" }
-    - { role: "rastervision.docker" }
-    - { role: "rastervision.shellcheck" }
+    - { role: "isprs-potsdam-viz.awscli" }
+    - { role: "isprs-potsdam-viz.docker" }
+    - { role: "isprs-potsdam-viz.shellcheck" }
