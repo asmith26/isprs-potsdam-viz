@@ -2,10 +2,6 @@ variable "project" {
   default = "Raster Vision"
 }
 
-variable "project_id" {
-  default = "RV"
-}
-
 variable "environment" {
   default = "Production"
 }
@@ -54,10 +50,6 @@ variable "raster_vision_ecs_deployment_max_percent" {
 
 variable "aws_s3_policy_arn" {
   default = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
-}
-
-variable server_app_alb_ingress_cidr_block {
-  default = ["0.0.0.0/0"]
 }
 
 # CloudFront
