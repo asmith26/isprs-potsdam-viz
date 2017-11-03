@@ -11,16 +11,6 @@ resource "aws_security_group_rule" "raster_vision_alb_https_ingress" {
   security_group_id = "${module.raster_vision_ecs_service.lb_security_group_id}"
 }
 
-resource "aws_security_group_rule" "alb_http_ingress" {
-  type        = "ingress"
-  from_port   = 80
-  to_port     = 80
-  protocol    = "tcp"
-  cidr_blocks = ["0.0.0.0/0"]
-
-  security_group_id = "${module.raster_vision_ecs_service.lb_security_group_id}"
-}
-
 resource "aws_security_group_rule" "alb_container_instance_all_egress" {
   type      = "egress"
   from_port = 0
