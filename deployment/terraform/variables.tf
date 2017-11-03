@@ -16,6 +16,9 @@ variable "aws_region" {
   default = "us-east-1"
 }
 
+variable "aws_account_id" {
+  default = "896538046175"
+}
 variable "remote_state_bucket" {
   default = "geotrellis-site-production-config-us-east-1"
 }

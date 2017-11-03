@@ -2,8 +2,8 @@ data "template_file" "raster_vision_ecs_task" {
   template = "${file("task-definitions/app-server.json")}"
 
   vars {
-    nginx_image_url      = "896538046175.dkr.ecr.us-east-1.amazonaws.com/rastervision-nginx:${var.image_version}"
-    api_server_image_url = "896538046175.dkr.ecr.us-east-1.amazonaws.com/rastervision-api-server:${var.image_version}"
+    nginx_image_url      = "${var.aws_account_id}.dkr.ecr.us-east-1.amazonaws.com/rastervision-nginx:${var.image_version}"
+    api_server_image_url = "${var.aws_account_id}.dkr.ecr.us-east-1.amazonaws.com/rastervision-api-server:${var.image_version}"
     region               = "${var.aws_region}"
     environment          = "${var.environment}"
   }
