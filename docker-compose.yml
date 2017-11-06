@@ -24,7 +24,7 @@ services:
         - ./src/app-frontend:/usr/src
         - ./src/nginx/srv/dist:/usr/src/dist
         # Ensure node_modules cache doesn't clash with other jobs on CI.
-        - ${PWD}/rastervision-node-modules:/usr/src/node_modules
+        - ${PWD}/potsdam-demo-node-modules:/usr/src/node_modules
     entrypoint: npm
     command: run dev-server
   api-server:
@@ -36,7 +36,7 @@ services:
         - ./data/catalog-hadoop:/opt/catalog-hadoop/
         - ./data/catalog:/opt/catalog/
         - ./src/app-backend/.sbt:/root/.sbt
-        - /home/vagrant/.ivy2/:/root/.ivy2
+        - $HOME/.ivy2/:/root/.ivy2
         - $HOME/.aws:/root/.aws:ro
     environment:
       - AWS_PROFILE=geotrellis

@@ -26,23 +26,23 @@ variable "ssl_certificate_arn" {
   default = "arn:aws:acm:us-east-1:896538046175:certificate/a416c2af-00dd-4afd-8c71-dd32edefa839"
 }
 
-variable "raster_vision_ecs_desired_count" {
+variable "potsdam_ecs_desired_count" {
   default = "1"
 }
 
-variable "raster_vision_ecs_min_count" {
+variable "potsdam_ecs_min_count" {
   default = "1"
 }
 
-variable "raster_vision_ecs_max_count" {
+variable "potsdam_ecs_max_count" {
   default = "2"
 }
 
-variable "raster_vision_ecs_deployment_min_percent" {
+variable "potsdam_ecs_deployment_min_percent" {
   default = "100"
 }
 
-variable "raster_vision_ecs_deployment_max_percent" {
+variable "potsdam_ecs_deployment_max_percent" {
   default = "200"
 }
 

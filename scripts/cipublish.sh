@@ -2,7 +2,7 @@
 
 set -e
 
-if [[ -n "${RV_DEBUG}" ]]; then
+if [[ -n "${POTSDAM_DEBUG}" ]]; then
     set -x
 fi
 
@@ -44,13 +44,13 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
             # is a docker login command with temporarily ECR credentials.
             eval "$(aws ecr get-login --region us-east-1 --no-include-email)"
 
-            docker tag "rastervision-nginx:${TRAVIS_COMMIT}" \
-                   "${AWS_ECR_ENDPOINT}/rastervision-nginx:${TRAVIS_COMMIT}"
-            docker tag "rastervision-api-server:${TRAVIS_COMMIT}" \
-                   "${AWS_ECR_ENDPOINT}/rastervision-api-server:${TRAVIS_COMMIT}"
+            docker tag "potsdam-nginx:${TRAVIS_COMMIT}" \
+                   "${AWS_ECR_ENDPOINT}/potsdam-nginx:${TRAVIS_COMMIT}"
+            docker tag "potsdam-api-server:${TRAVIS_COMMIT}" \
+                   "${AWS_ECR_ENDPOINT}/potsdam-api-server:${TRAVIS_COMMIT}"
 
-            docker push "${AWS_ECR_ENDPOINT}/rastervision-nginx:${TRAVIS_COMMIT}"
-            docker push "${AWS_ECR_ENDPOINT}/rastervision-api-server:${TRAVIS_COMMIT}"
+            docker push "${AWS_ECR_ENDPOINT}/potsdam-nginx:${TRAVIS_COMMIT}"
+            docker push "${AWS_ECR_ENDPOINT}/potsdam-api-server:${TRAVIS_COMMIT}"
 
         else
             echo "ERROR: No AWS_ECR_ENDPOINT variable defined."

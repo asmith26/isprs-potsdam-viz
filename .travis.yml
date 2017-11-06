@@ -4,13 +4,13 @@ cache:
   directories:
   - ${HOME}/.ivy2
   - ./src/app-backend/.sbt
-  - ${PWD}/raster-vision-node-modules
+  - ${PWD}/isprs-potsdam-viz-node-modules
 services: docker
 env:
   global:
   - DOCKER_COMPOSE_VERSION=1.16.*
   - AWS_CLI_VERSION=1.11.*
-  - RV_SETTINGS_BUCKET=geotrellis-site-production-config-us-east-1
+  - POTSDAM_SETTINGS_BUCKET=geotrellis-site-production-config-us-east-1
   - RV_DEBUG=1
   - AWS_DEFAULT_REGION=us-east-1
   - secure: 3q/ipeGByrlfE5L/I18VbKUkBDYLDu0YIUXMrb++n69FgoeMqz2fXib+VG8FxUjS/bWcoQxqHxsQFGztJG2hUMmUgAlfpEb9B+dE7+ElLyy8bVMqEYcU+arJhwB7WEbfnLHp9FlNvl52mcM4ObvAkNOHKxA0iEdNlrmcqyAY+lN2/1/3ZRxIAlb90hBAHVAGVkKeWKSqvnEPJfx+Em9Usr8WtOWvxTEuM8dN7x7AUaCJevVy3SRK/YkUKtrYxdPHdMKgfQTXob9F0bCvHC655gjOcUqgQmTbPkt5T1dYWmeUOLnT8L/9qEs8mJbHg6TksWIiJsIZ7cNS1D39dJRTYSeWEcMSlFltjtiPZXTU5XNuzV7adH9X0NAhiZMvUbloX2t13y1LGzgJWK5B1YU8kLd8qNmmMTTpZ7cHZnGEJ/QSU/gM070vgWK3HBRVOCuuenJ+I+RXtKStbqkVQMNJA9o8VC4PUBMgfOWL2V7oH1n5f80GSk1PwstDWl0GI9IguqmpK0OgKM44w9G3qvvt/2ozzqljGmXImSpFUK30aWUjMGNjCiDS6knDw6+RAW2gPtzgxrIJd11jonu9tMOzfi1Pl23J+3hhCQjwRhG3uBMu2T4hOrVZHr2CRqPXw6p+Td5pVGoTbFi2LBF5weouAwXlEW/kD6+BnRVU7zW4c1A=

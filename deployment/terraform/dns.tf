@@ -8,8 +8,8 @@ resource "aws_route53_record" "origin" {
   type    = "A"
 
   alias {
-    name                   = "${lower(module.raster_vision_ecs_service.lb_dns_name)}."
-    zone_id                = "${module.raster_vision_ecs_service.lb_zone_id}"
+    name                   = "${lower(module.potsdam_ecs_service.lb_dns_name)}."
+    zone_id                = "${module.potsdam_ecs_service.lb_zone_id}"
     evaluate_target_health = true
   }
 }

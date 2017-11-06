@@ -17,9 +17,9 @@
         "logConfiguration": {
             "logDriver": "awslogs",
             "options": {
-                "awslogs-group": "log${environment}RasterVision",
+                "awslogs-group": "log${environment}PotsdamDemo",
                 "awslogs-region": "${region}",
-                "awslogs-stream-prefix": "raster-vision"
+                "awslogs-stream-prefix": "nginx"
             }
         }
     },
@@ -37,9 +37,9 @@
         "logConfiguration": {
             "logDriver": "awslogs",
             "options": {
-                "awslogs-group": "log${environment}RasterVision",
+                "awslogs-group": "log${environment}PotsdamDemo",
                 "awslogs-region": "${region}",
-                "awslogs-stream-prefix": "raster-vision"
+                "awslogs-stream-prefix": "api-server"
             }
         }
     }

@@ -3,7 +3,7 @@
 #
 
 resource "aws_s3_bucket" "catalogs" {
-  bucket = "rastervision-${lower(var.environment)}-catalogs-${var.aws_region}"
+  bucket = "potsdam-${lower(var.environment)}-catalogs-${var.aws_region}"
 
   tags {
     Project     = "${var.project}"

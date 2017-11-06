@@ -3,7 +3,7 @@
 
 set -e
 
-if [[ -n "${RV_DEBUG}" ]]; then
+if [[ -n "${POTSDAM_DEBUG}" ]]; then
     set -x
 fi
 

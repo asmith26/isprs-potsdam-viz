@@ -1,12 +1,12 @@
 version: '2.1'
 services:
   nginx:
-    image: rastervision-nginx:${TRAVIS_COMMIT:-latest}
+    image: potsdam-nginx:${TRAVIS_COMMIT:-latest}
     build:
       context: ./src/nginx
       dockerfile: Dockerfile
   api-server:
-    image: rastervision-api-server:${TRAVIS_COMMIT:-latest}
+    image: potsdam-api-server:${TRAVIS_COMMIT:-latest}
     build:
       context: ./src/app-backend/server
       dockerfile: Dockerfile

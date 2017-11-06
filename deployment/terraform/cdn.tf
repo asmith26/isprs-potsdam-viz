@@ -1,7 +1,7 @@
 resource "aws_cloudfront_distribution" "cdn" {
   origin {
     domain_name = "${aws_route53_record.origin.fqdn}"
-    origin_id   = "originRasterVisionSite"
+    origin_id   = "originPotsdamSite"
 
     custom_origin_config {
       http_port              = 80
@@ -13,7 +13,7 @@ resource "aws_cloudfront_distribution" "cdn" {
 
   enabled          = true
   http_version     = "http2"
-  comment          = "Raster Vision (${var.environment})"
+  comment          = "Geotrellis Potsdam Demo (${var.environment})"
   retain_on_delete = true
 
   price_class = "${var.cdn_price_class}"
@@ -24,7 +24,7 @@ resource "aws_cloudfront_distribution" "cdn" {
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
     cached_methods   = ["GET", "HEAD", "OPTIONS"]
-    target_origin_id = "originRasterVisionSite"
+    target_origin_id = "originPotsdamSite"
 
     forwarded_values {
       query_string = true
@@ -45,7 +45,7 @@ resource "aws_cloudfront_distribution" "cdn" {
   logging_config {
     include_cookies = false
     bucket          = "${data.terraform_remote_state.core.logs_bucket_id}.s3.amazonaws.com"
-    prefix          = "CloudFront/RasterVision/"
+    prefix          = "CloudFront/Potsdam/"
   }
 
   restrictions {

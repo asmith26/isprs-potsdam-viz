@@ -2,7 +2,7 @@
 
 set -e
 
-if [[ -n "${RV_DEBUG}" ]]; then
+if [[ -n "${POTSDAM_DEBUG}" ]]; then
     set -x
 fi
 
@@ -32,22 +32,22 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         echo
     fi
 
-    if [[ -n "${RV_SETTINGS_BUCKET}" ]]; then
+    if [[ -n "${POTSDAM_SETTINGS_BUCKET}" ]]; then
         pushd "${TERRAFORM_DIR}"
 
         case "${1}" in
             plan)
                 rm -rf .terraform terraform.tfstate* 
                 terraform init \
-                  -backend-config="bucket=${RV_SETTINGS_BUCKET}" \
-                  -backend-config="key=terraform/raster-vision/state"
+                  -backend-config="bucket=${POTSDAM_SETTINGS_BUCKET}" \
+                  -backend-config="key=terraform/potsdam/state"
 
                 terraform plan \
-                          -var="image_version=${TRAVIS_COMMIT}" \
-                          -out="${RV_SETTINGS_BUCKET}.tfplan"
+                          -var="image_version=\"${TRAVIS_COMMIT}\"" \
+                          -out="${POTSDAM_SETTINGS_BUCKET}.tfplan"
                 ;;
             apply)
-                terraform apply "${RV_SETTINGS_BUCKET}.tfplan"
+                terraform apply "${POTSDAM_SETTINGS_BUCKET}.tfplan"
                 ;;
             *)
                 echo "ERROR: I don't have support for that Terraform subcommand!"
@@ -57,7 +57,7 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
 
         popd
     else
-        echo "ERROR: No RV_SETTINGS_BUCKET variable defined."
+        echo "ERROR: No POTSDAM_SETTINGS_BUCKET variable defined."
         exit 1
     fi
 fi
