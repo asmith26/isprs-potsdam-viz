@@ -3,8 +3,8 @@ language: bash
 cache:
   directories:
   - ${HOME}/.ivy2
-  - ./src/app-backend/.sbt
-  - ${PWD}/isprs-potsdam-viz-node-modules
+  - ${HOME}/.sbt
+  - /var/cache/potsdam-demo-node-modules
 services: docker
 env:
   global:
