@@ -26,7 +26,7 @@ config.module.loaders.unshift(
 );
 
 config.devServer =  {
-  contentBase: './dist',
+  contentBase: '../dist',
   info: true,
   hot: true,
   inline: true,

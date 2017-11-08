@@ -21,10 +21,10 @@ services:
     environment:
       - VERSION=${TRAVIS_COMMIT:-latest}
     volumes:
-        - ./src/app-frontend:/usr/src
-        - ./src/nginx/srv/dist:/usr/src/dist
+        - ./src/app-frontend/:/usr/src
+        - ./src/nginx/srv/dist:/usr/dist
         # Ensure node_modules cache doesn't clash with other jobs on CI.
-        - ${PWD}/potsdam-demo-node-modules:/usr/src/node_modules
+        - /var/cache/potsdam-demo-node-modules:/usr/src/node_modules
     entrypoint: npm
     command: run dev-server
   api-server:
@@ -35,9 +35,9 @@ services:
         - ./src/app-backend/:/opt/app-backend/
         - ./data/catalog-hadoop:/opt/catalog-hadoop/
         - ./data/catalog:/opt/catalog/
-        - ./src/app-backend/.sbt:/root/.sbt
-        - $HOME/.ivy2/:/root/.ivy2
-        - $HOME/.aws:/root/.aws:ro
+        - ${HOME}/.sbt:/root/.sbt
+        - ${HOME}/.ivy2/:/root/.ivy2
+        - ${HOME}/.aws:/root/.aws:ro
     environment:
       - AWS_PROFILE=geotrellis
     working_dir: /opt/app-backend/

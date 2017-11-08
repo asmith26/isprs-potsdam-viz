@@ -5,7 +5,7 @@ module.exports = {
         app: './js/Main.jsx',
     },
     output: {
-        path: __dirname,
+        path: '../dist',
         filename: 'rastervision.viz.[hash].js',
     },
     eslint: {
