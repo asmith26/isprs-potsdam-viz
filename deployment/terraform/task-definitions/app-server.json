@@ -32,7 +32,7 @@
         "command": [
             "-Xmx1536m",
             "-jar",
-            "rv-server.jar"
+            "potsdam-server.jar"
         ],
         "logConfiguration": {
             "logDriver": "awslogs",
