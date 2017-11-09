@@ -16,8 +16,6 @@ Vagrant.configure(2) do |config|
     vb.cpus = 4
   end
 
-  config.vm.network "private_network", ip: ENV.fetch("RV_PRIVATE_IP", "10.10.10.10")
-
   # Webpack Dev Server
   config.vm.network :forwarded_port, guest: 8284, host: 8284
   # API server
