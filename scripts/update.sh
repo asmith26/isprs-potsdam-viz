@@ -20,6 +20,11 @@ then
     then
         usage
     else
+        docker-compose pull
+
+        docker-compose run --rm --no-deps \
+            api-server update
+
         # Install npm dependencies
         docker-compose \
             -f docker-compose.yml \
