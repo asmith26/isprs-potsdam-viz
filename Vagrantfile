@@ -8,7 +8,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.synced_folder "~/.aws", "/home/vagrant/.aws"
   config.vm.synced_folder "./", "/vagrant", type: "rsync",
-    rsync__exclude: ["app-backend/**/target/",
+    rsync__exclude: [".git/", "app-backend/**/target/",
                       "deployment/ansible/roles/azavea*/"],
     rsync__args: ["--verbose", "--archive", "-z"]
   config.vm.provider :virtualbox do |vb|
